@@ -1,4 +1,4 @@
-# Lab 9 -- Display Chart
+# Display Chart
 
 We will build a GUI to display a set of values. You will display the values using both a line chart and a bar chart on the same app. You will implement the following:
 
