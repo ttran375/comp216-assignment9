@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+
 from data_generator import DataGenerator
 
 
@@ -105,9 +106,9 @@ class LineChartApp(tk.Tk):
             ]
             self.canvas.create_rectangle(
                 self.rect_top_left[0],
-                self.rect_top_left[1],
+                self.rect_top_left[1],  # top left
                 self.rect_bottom_right[0],
-                self.rect_bottom_right[1],
+                self.rect_bottom_right[1],  # bottom right
                 outline="",
                 fill="#1f1",
             )
@@ -137,9 +138,8 @@ class LineChartApp(tk.Tk):
         This function replaces the last value in the list with a new value provided by the user.
         """
         try:
-            # Update the last value in the list
             new_value = int(self.value_entry.get())
-            self.values.append(new_value)
+            self.values.append(new_value)  # Add the new value to the list
 
             # Calculate the position of the new point on the chart
             new_point = [
@@ -230,11 +230,13 @@ class LineChartApp(tk.Tk):
         Draw the temperature pointer on the thermometer.
         This function updates the position of the pointer based on the current temperature value.
         """
+
+        # Delete the previous pointer
         if self.my_pointer is not None:
             self.canvas.delete(self.my_pointer)
 
+        # Draw the new temperature pointer on the canvas
         new_point = self.temp_start_y - (i * 3)
-
         new_rect_top_left = [self.rect_top_left[0], new_point]
         new_rect_bottom_right = [self.rect_bottom_right[0], new_point + (5 * 3)]
         self.my_pointer = self.canvas.create_rectangle(
